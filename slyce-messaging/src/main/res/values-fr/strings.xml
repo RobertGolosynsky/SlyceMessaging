@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SnipSnapApp</string>
-    <string name="scout_entry_hint">Ecrire votre message ici</string>
+    <string name="scout_entry_hint">Ecrire un message</string>
 
     <!-- Date -->
     <string name="date_now">A l\’instant</string>

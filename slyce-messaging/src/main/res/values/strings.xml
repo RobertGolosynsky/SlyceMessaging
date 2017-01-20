@@ -3,7 +3,7 @@
     <!-- Application -->
     <string name="app_name">SnipSnapApp</string>
 
-    <string name="scout_entry_hint">Type your message here</string>
+    <string name="scout_entry_hint">Type a message</string>
 
     <!-- Date -->
     <string name="date_now">Just now</string>
