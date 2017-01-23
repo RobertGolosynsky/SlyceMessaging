@@ -358,7 +358,9 @@ public class SlyceMessagingFragment extends Fragment implements OnClickListener 
 
     @Override
     public void onClick(View v) {
+        System.out.println("on click");
         if (v.getId() == R.id.slyce_messaging_image_view_send) {
+            System.out.println("click on send button");
             sendUserTextMessage();
         } else if (v.getId() == R.id.slyce_messaging_image_view_snap) {
             mEntryField.setText("");
@@ -435,12 +437,13 @@ public class SlyceMessagingFragment extends Fragment implements OnClickListener 
     }
 
     private void sendUserTextMessage() {
+        System.out.println("sendUserTextMessage start");
         String text = ViewUtils.getStringFromEditText(mEntryField);
         if (TextUtils.isEmpty(text))
             return;
         mEntryField.setText("");
+        System.out.println("text is not empty");
 
-        // Build messageData object
         TextMessage message = new TextMessage();
         message.setDate(System.currentTimeMillis());
         message.setAvatarUrl(defaultAvatarUrl);
@@ -453,5 +456,6 @@ public class SlyceMessagingFragment extends Fragment implements OnClickListener 
         ScrollUtils.scrollToBottomAfterDelay(mRecyclerView, mRecyclerAdapter);
         if (listener != null)
             listener.onUserSendsTextMessage(message.getText());
+        System.out.println("sendUserTextMessage end");
     }
 }
