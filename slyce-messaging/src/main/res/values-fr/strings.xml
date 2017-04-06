@@ -4,7 +4,7 @@
     <string name="scout_entry_hint">Ecrire un message</string>
 
     <!-- Date -->
-    <string name="date_now">A l\’instant</string>
+    <string name="date_now">A l\Voir Le Message’instant</string>
     <string name="date_a_minute_ago">il y a 1 minute</string>
     <string name="date_minutes_ago"> il y a {{x}} minutes</string>
     <string name="date_yesterday">Hier</string>

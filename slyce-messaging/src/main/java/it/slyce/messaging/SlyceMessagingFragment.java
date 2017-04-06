@@ -99,7 +99,8 @@ public class SlyceMessagingFragment extends Fragment implements OnClickListener 
     }
 
     private void removeSpinner() {
-        if (mMessages.get(0) instanceof SpinnerMessage) {
+
+        if (mMessages.size()>0 && mMessages.get(0) instanceof SpinnerMessage) {
             mMessages.remove(0);
             mMessageItems.remove(0);
             mRecyclerAdapter.notifyItemRemoved(0);
