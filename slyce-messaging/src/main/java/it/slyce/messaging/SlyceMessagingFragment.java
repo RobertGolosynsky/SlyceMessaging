@@ -295,9 +295,11 @@ public class SlyceMessagingFragment extends Fragment implements OnClickListener 
             protected void onPreExecute() {
                 super.onPreExecute();
                 mRefresher.setIsRefreshing(true);
-                spinnerExists = moreMessagesExist && mMessages.get(0) instanceof SpinnerMessage;
-                if (spinnerExists) {
-                    mMessages.remove(0);
+                if(mMessages.size()>0) {
+                    spinnerExists = moreMessagesExist && mMessages.get(0) instanceof SpinnerMessage;
+                    if (spinnerExists) {
+                        mMessages.remove(0);
+                    }
                 }
             }
 
