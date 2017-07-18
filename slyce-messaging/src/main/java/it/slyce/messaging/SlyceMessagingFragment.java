@@ -81,6 +81,7 @@ public class SlyceMessagingFragment extends Fragment implements OnClickListener 
     private int startHereWhenUpdate;
     private long recentUpdatedTime;
     private boolean moreMessagesExist;
+    private boolean shouldRequestPermissions = false;
 
     public void setPictureButtonVisible(final boolean bool) {
         if (getActivity() != null)
@@ -227,13 +228,13 @@ public class SlyceMessagingFragment extends Fragment implements OnClickListener 
 
         loadMoreMessagesIfNecessary();
         startLoadMoreMessagesListener();
-
-        if (ContextCompat.checkSelfPermission(getActivity().getApplicationContext(),
-                Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED ||
-                        ContextCompat.checkSelfPermission(getActivity().getApplicationContext(),
-                                Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
-            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 232);
-
+        if (shouldRequestPermissions) {
+            if (ContextCompat.checkSelfPermission(getActivity().getApplicationContext(),
+                    Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED ||
+                    ContextCompat.checkSelfPermission(getActivity().getApplicationContext(),
+                            Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
+                ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 232);
+        }
         return rootView;
     }
 
@@ -466,5 +467,9 @@ public class SlyceMessagingFragment extends Fragment implements OnClickListener 
         if (listener != null)
             listener.onUserSendsTextMessage(message.getText());
         System.out.println("sendUserTextMessage end");
+    }
+
+    public void setShouldRequestPermissions(boolean shouldRequestPermissions) {
+        this.shouldRequestPermissions = shouldRequestPermissions;
     }
 }
