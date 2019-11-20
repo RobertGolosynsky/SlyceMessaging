@@ -1,16 +1,17 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion '24.0.1'
+    compileSdkVersion 29
+    buildToolsVersion '29.0.2'
 
     defaultConfig {
         applicationId "it.snipsnap.slyce_messaging_example"
         minSdkVersion 16
-        targetSdkVersion 24
+        targetSdkVersion 29
         versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        versionName "1.1"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
         release {
@@ -21,14 +22,14 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
 
     // Test
-    testCompile 'junit:junit:4.12'
-    androidTestCompile "com.android.support.test:runner:$rootProject.ext.testRunnerVersion"
-    androidTestCompile "com.android.support.test:rules:$rootProject.ext.testRunnerVersion"
-    androidTestCompile "com.android.support.test.espresso:espresso-core:$rootProject.ext.espressoVersion"
-    androidTestCompile "com.android.support.test.espresso:espresso-contrib:$rootProject.ext.espressoVersion"
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test:rules:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.1.0'
 
     // Handle support annotation library conflict with testing support libraries
     configurations.androidTestCompile.dependencies.each { androidTestCompileDependency ->
@@ -36,5 +37,6 @@ dependencies {
     }
 
     // Lib Module
-    compile project(':slyce-messaging')
+    implementation project(':slyce-messaging')
+    implementation 'androidx.appcompat:appcompat:1.1.0'
 }

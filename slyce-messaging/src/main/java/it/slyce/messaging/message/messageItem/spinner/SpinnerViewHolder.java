@@ -16,6 +16,6 @@ public class SpinnerViewHolder extends MessageViewHolder {
     public SpinnerViewHolder(View itemView, CustomSettings customSettings) {
         super(itemView, customSettings);
         this.spinner = (ProgressBar) itemView.findViewById(R.id.loading_bar);
-        this.spinner.getIndeterminateDrawable().setColorFilter(R.color.text_pink, PorterDuff.Mode.MULTIPLY);
+        this.spinner.getIndeterminateDrawable().setColorFilter(itemView.getResources().getColor(R.color.text_pink), PorterDuff.Mode.MULTIPLY);
     }
 }

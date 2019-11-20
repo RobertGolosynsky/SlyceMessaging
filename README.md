@@ -27,7 +27,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.github.Slyce-Inc:SlyceMessaging:1.1.2'
+    implementation 'com.github.Slyce-Inc:SlyceMessaging:1.1.2'
 }
 ```
 

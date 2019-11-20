@@ -8,14 +8,14 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
+import androidx.appcompat.widget.AppCompatImageView;
 
 import it.slyce.messaging.R;
 
 /**
  * Created by John C. Hunchar on 3/2/16.
  */
-public class FixedAspectRatioImageView extends ImageView {
+public class FixedAspectRatioImageView extends AppCompatImageView {
     private static final float DEFAULT_WIDTH_TO_HEIGHT_RATIO = 1.0f;
 
     private float mWidthToHeightRatio;
@@ -37,7 +37,7 @@ public class FixedAspectRatioImageView extends ImageView {
 
     @TargetApi(VERSION_CODES.LOLLIPOP)
     public FixedAspectRatioImageView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
+        super(context, attrs, defStyleAttr);
         init(context, attrs, defStyleAttr, defStyleRes);
     }
 
